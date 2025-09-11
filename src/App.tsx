@@ -1,9 +1,7 @@
-import { TaskPage } from "./components/task/TaskPage";
-
-export type filterType = "all" | "completed" | "pending";
+import { FormRegister } from "./components/form/FormRegister";
 
 function App() {
-	return <TaskPage />;
+	return <FormRegister />;
 }
 
 export default App;

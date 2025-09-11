@@ -1,7 +1,7 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { type PropsTask } from "./CardTask";
 import styles from "./CreateTask.module.css"; // Importa los estilos CSS Modules
-import type { filterType } from "../../App";
+import type { filterType } from "./TaskPage";
 
 interface Props {
 	children?: React.ReactNode;

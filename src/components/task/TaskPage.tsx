@@ -1,7 +1,8 @@
 import { useState } from "react";
-import type { filterType } from "../../App";
 import { CardTask, type PropsTask } from "./CardTask";
 import { CreateTask } from "./CreateTask";
+
+export type filterType = "all" | "completed" | "pending";
 
 export const TaskPage = () => {
 	const [filter, setFilter] = useState<filterType>("all");
