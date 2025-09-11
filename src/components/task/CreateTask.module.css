@@ -2,13 +2,14 @@
 
 /* Estilos generales para el contenedor principal, similar a CardTask */
 .card-task-container {
+	
 	/* Reutilizo la clase base para mantener consistencia */
 	background-color: #f8f9fa; /* Un tono gris muy claro para el formulario */
-  color: #fff;
+	color: #fff;
 	border-radius: 10px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 	padding: 25px;
-	margin: 15px;
+	margin: auto;
 	display: flex;
 	width: 75vw;
 	flex-direction: column;
@@ -16,10 +17,10 @@
 	max-width: 500px; /* Un poco más ancho para el formulario */
 }
 .conteinerFilter {
-  width: 100%;
-  margin: 15px;
-  display: flex;
-  justify-content: space-evenly;
+	width: 100%;
+	margin: 15px;
+	display: flex;
+	justify-content: space-evenly;
 }
 .conteinerTasks {
 	margin-top: 20px;
@@ -37,9 +38,9 @@
 
 /* Opcional: Para hacer que las cards se adapten bien en pantallas pequeñas */
 @media (max-width: 768px) {
-  .card-task-container {
-    margin: 0%;
-  }
+	.card-task-container {
+		margin: auto;
+	}
 	.conteinerTasks {
 		grid-template-columns: 100%; /* En pantallas pequeñas, usa una sola columna */
 	}
@@ -103,4 +104,3 @@
 .add-task-form input::placeholder {
 	color: #adb5bd; /* Gris más claro para el placeholder */
 }
-
