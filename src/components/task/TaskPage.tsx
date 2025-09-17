@@ -39,3 +39,5 @@ export const TaskPage = () => {
 	);
 };
 
+export default TaskPage;
+

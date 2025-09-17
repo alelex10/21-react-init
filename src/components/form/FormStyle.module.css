@@ -1,74 +1,127 @@
-/* src/components/form/style.module.css */
+/* src/components/form/FormStyle.module.css */
 
+/* Container for the entire form */
 .formContainer {
+  background-color: #ffffff; /* White background */
+  padding: 30px 40px; /* Generous padding */
+  border-radius: 12px; /* Softer, more modern rounded corners */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  max-width: 450px; /* Max width for better readability on large screens */
+  width: 90%; /* Responsive width */
+  margin: 40px auto; /* Center the form with space above and below */
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 300px;
-  margin: 20px auto;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center; /* Center content horizontally */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern sans-serif font */
 }
 
+/* Form title */
 .formTitle {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem; /* Larger, more prominent title */
+  color: #333; /* Dark grey for title */
+  margin-bottom: 30px; /* More space below the title */
+  font-weight: 600; /* Semi-bold */
+  letter-spacing: 0.5px; /* Slight letter spacing for elegance */
 }
 
+/* Individual form group (label, input, error message) */
 .formGroup {
+  width: 100%; /* Full width for each group */
+  margin-bottom: 20px; /* Space between form groups */
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) */
 }
 
+/* Labels */
 .formGroup label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
-
-.formGroup input {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
   font-size: 1rem;
-  transition: border-color 0.2s ease-in-out;
+  color: #555; /* Medium grey for labels */
+  margin-bottom: 8px; /* Space between label and input */
+  font-weight: 500; /* Medium weight */
 }
 
-.formGroup input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+/* Input fields */
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="password"] {
+  width: 100%; /* Input takes full width of its container */
+  padding: 12px 15px;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 8px; /* Slightly more rounded corners for inputs */
+  font-size: 1rem;
+  color: #333; /* Dark text for input */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  outline: none; /* Remove default outline */
 }
 
-.error {
-  color: #dc3545;
-  font-size: 0.875rem;
-  margin-top: 5px;
-  min-height: 1.2em; /* Para evitar saltos de layout */
+/* Input focus styles */
+.formGroup input[type="text"]:focus,
+.formGroup input[type="email"]:focus,
+.formGroup input[type="password"]:focus {
+  border-color: #007bff; /* Primary blue border on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle blue glow */
 }
 
-.submitButton {
-  padding: 12px 20px;
-  background-color: #007bff;
-  color: white;
+/* Error message styling */
+.formGroup .error {
+  color: #dc3545; /* Red color for error messages */
+  font-size: 0.85rem; /* Smaller font size for errors */
+  margin-top: 6px; /* Space above error message */
+  min-height: 1.2em; /* Reserve space to prevent layout shifts */
+}
+
+/* Send button styling */
+button[type="submit"] {
+  background-color: #28a745; /* Vibrant green for the submit button */
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  padding: 12px 25px;
+  border-radius: 8px;
   font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  width: 100%; /* Make the button full width */
+  margin-top: 10px; /* Space above the button */
 }
 
-.submitButton:hover {
-  background-color: #0056b3;
+/* Button hover and active states */
+button[type="submit"]:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-1px); /* Slight lift effect */
 }
 
-.submitButton:disabled {
-  background-color: #cccccc;
+button[type="submit"]:active {
+  background-color: #1e7e34; /* Even darker green when clicked */
+  transform: translateY(0); /* Reset lift effect */
+}
+
+/* Disabled state for the button */
+button[type="submit"]:disabled {
+  background-color: #adb5bd; /* Grey out when disabled */
   cursor: not-allowed;
+  transform: none;
+}
+
+/* Placeholder styling for inputs */
+.formGroup input::placeholder {
+  color: #aaa; /* Lighter grey for placeholder text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .formContainer {
+    padding: 25px 30px;
+    margin: 20px auto;
+  }
+
+  .formTitle {
+    font-size: 1.8rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }

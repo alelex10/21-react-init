@@ -1,71 +1,41 @@
-// Ejercicio 3: Hook Personalizado
-// Crea un hook useTimer que:
+import { useTimer } from "./useTimer";
+import styles from "./Timer.module.css"; // Import CSS Modules
 
-import { useState } from "react";
-
-// Maneje un temporizador.
-// Permita pausar/reanudar.
-// Tenga función de reset.
-// Ejecute callback cuando llegue a cero.
-type stadeTimer = "Start" | "Pause" | "Resume";
 export const Timer = () => {
-  const [timerInput, setTimerInput] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-  const [buttonText, setButtonText] = useState<stadeTimer>("Start");
-  const textButton = {
-    Start: "Start",
-    Pause: "Pause",
-    Resume: "Resume",
-  }[buttonText];
+  const { timerInput, timeLeft, textButtonAux, handleTimer, handleReset, setTimerInput } =
+    useTimer();
 
-  const interval = setInterval(() => {
-    if (isRunning && timeLeft > 0) {
-      setTimeLeft(timeLeft - 1);
+  // Determine button class based on textButtonAux()
+  const getButtonClass = () => {
+    if (textButtonAux() === "Start") {
+      return styles.startButton;
+    } else if (textButtonAux() === "Pause") {
+      return styles.pauseButton;
     }
-  }, 1000);
-
-  const handlePause = () => {
-    setIsRunning(false);
-    setButtonText("Resume");
-    if (timeLeft === 0) {
-      setButtonText("Start");
-    }
-
-  };
-  const handleStart = () => {
-    setTimeLeft(timerInput);
-    setButtonText("Pause");
-    setIsRunning(true);
-  };
-  const handleResume = () => {
-    setButtonText("Pause");
-    setIsRunning(true   );
-  };
-  const handleTimer = {
-    Start: handleStart,
-    Pause: handlePause,
-    Resume: handleResume,
-  }[buttonText];
-
-  const handleReset = () => {
-    setIsRunning(false);
-    setButtonText("Start");
-    setTimeLeft(timerInput);
+    return ""; // Default or unexpected cases
   };
 
   return (
-    <div>
+    <div className={styles.timerContainer}>
       <h1>Timer</h1>
 
       <input
         value={timerInput}
         type="number"
         onChange={(event) => setTimerInput(Number(event.target.value))}
+        className={styles.timerInput}
+        placeholder="Enter seconds"
       />
-      <p>Time Left: {timeLeft} seconds</p>
-      <button onClick={handleTimer}>{textButton}</button>
-      <button onClick={handleReset}>Reset</button>
+      <p className={styles.timeLeft}>Time Left: {timeLeft} seconds</p>
+      <div className={styles.buttonGroup}>
+        <button onClick={handleTimer} className={`${styles.timerButton} ${getButtonClass()}`}>
+          {textButtonAux()}
+        </button>
+        <button onClick={handleReset} className={`${styles.timerButton} ${styles.resetButton}`}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 };
+export default Timer;

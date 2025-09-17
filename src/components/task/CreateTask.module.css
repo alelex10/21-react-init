@@ -2,7 +2,6 @@
 
 /* Estilos generales para el contenedor principal, similar a CardTask */
 .card-task-container {
-	
 	/* Reutilizo la clase base para mantener consistencia */
 	background-color: #f8f9fa; /* Un tono gris muy claro para el formulario */
 	color: #fff;
@@ -104,3 +103,31 @@
 .add-task-form input::placeholder {
 	color: #adb5bd; /* Gris más claro para el placeholder */
 }
+
+/* Estilos para los filtros */
+.card-task-container .conteinerFilter button {
+  background-color: #007bff; /* Azul primario */
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px; /* Espaciado entre botones */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.card-task-container .conteinerFilter button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+.card-task-container .conteinerFilter button:active {
+  background-color: #004085; /* Azul aún más oscuro al hacer clic */
+}
+
+/* Estilo para el botón de filtro activo (opcional, pero recomendado) */
+.card-task-container .conteinerFilter button.active {
+  background-color: #6c757d; /* Gris para el botón activo */
+  font-weight: bold;
+}
+
